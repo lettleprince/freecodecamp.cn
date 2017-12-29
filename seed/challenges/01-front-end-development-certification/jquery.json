@@ -44,9 +44,9 @@
         "</div>"
       ],
       "tests": [
-        "assert(code.match(/<\\/script\\s*>/g) && code.match(/<script(\\sasync|\\sdefer)*(\\s(charset|src|type)\\s*=\\s*[\"\\']+[^\"\\']*[\"\\']+)*(\\sasync|\\sdefer)*\\s*>/g) && code.match(/<\\/script\\s*>/g).length === code.match(/<script(\\sasync|\\sdefer)*(\\s(charset|src|type)\\s*=\\s*[\"\\']+[^\"\\']*[\"\\']+)*(\\sasync|\\sdefer)*\\s*>/g).length, 'message: Create a <code>script</code> element making sure it is valid and has a closing tag.');",
-        "assert(code.match(/\\$\\s*?\\(\\s*?document\\)\\.ready\\s*?\\(\\s*?function\\s*?\\(\\s*?\\)\\s*?\\{/g), 'message: You should add <code>$&#40;document&#41;.ready&#40;function&#40;&#41; {</code> to the beginning of your <code>script</code> element.');",
-        "assert(code.match(/\\n*?\\s*?\\}\\s*?\\);/g), 'message: Close your <code>$&#40;document&#41;.ready&#40;function&#40;&#41; {</code> function with <code>}&#41;;</code>');"
+        "assert(code.match(/<\\/script\\s*>/g) && code.match(/<script(\\sasync|\\sdefer)*(\\s(charset|src|type)\\s*=\\s*[\"\\']+[^\"\\']*[\"\\']+)*(\\sasync|\\sdefer)*\\s*>/g) && code.match(/<\\/script\\s*>/g).length === code.match(/<script(\\sasync|\\sdefer)*(\\s(charset|src|type)\\s*=\\s*[\"\\']+[^\"\\']*[\"\\']+)*(\\sasync|\\sdefer)*\\s*>/g).length, 'message: 创建一个 <code>script</code> 元素，确保它是有效的，并且有关闭标签。');",
+        "assert(code.match(/\\$\\s*?\\(\\s*?document\\)\\.ready\\s*?\\(\\s*?function\\s*?\\(\\s*?\\)\\s*?\\{/g), 'message: 你应该添加 <code>$&#40;document&#41;.ready&#40;function&#40;&#41; {</code> 到 <code>script</code> 元素的开头部分。');",
+        "assert(code.match(/\\n*?\\s*?\\}\\s*?\\);/g), 'message: 使用 <code>}&#41;;</code> 来关闭 <code>$&#40;document&#41;.ready&#40;function&#40;&#41; {</code> function。');"
       ],
       "type": "waypoint",
       "challengeType": 0
@@ -94,8 +94,8 @@
         "</div>"
       ],
       "tests": [
-        "assert($(\"button\").hasClass(\"animated\") && $(\"button\").hasClass(\"bounce\"), 'message: Use the jQuery <code>addClass&#40&#41</code> function to give the class <code>animated</code> and <code>bounce</code> to your <code>button</code> elements.');",
-        "assert(!code.match(/class.*animated/g), 'message: Only use jQuery to add these class to the element.');"
+        "assert($(\"button\").hasClass(\"animated\") && $(\"button\").hasClass(\"bounce\"), 'message: 使用 jQuery 的 <code>addClass&#40&#41</code> function 为你的 <code>button</code> 元素添加 class <code>animated</code> 和 <code>bounce</code>。');",
+        "assert(!code.match(/class.*animated/g), 'message: 只用 jQuery 来为元素添加 class。');"
       ],
       "type": "waypoint",
       "challengeType": 0
@@ -106,9 +106,9 @@
       "description": [
         "你看到我们是怎么给所有的<code>按钮</code>做弹回效果了吗？我们用 <code>$(\"button\")</code>来选中按钮，然后用<code>.addClass(\"animated bounce\")</code>给按钮加CSS class。",
         "你只需要用jQuery的<code>.addClass()</code>方法，就可以给元素加class了。",
-        "首先，我们来使用<code>$(\".well\")</code>来引用所有使用了<code>well</code> class的<code>div</code>元素。",
-        "注意，就像CSS class一样，只需要在class名字前加.就可以引用了。",
-        "然后使用jQuery的<code>.addClass()</code>方法添加<code>animated</code>和<code>shake</code>class。",
+        "首先，我们来使用<code>$(\".well\")</code>来获取所有class为<code>well</code>的<code>div</code>元素。",
+        "仔细想想为什么需要在<code>well</code>前面添加<code>.</code>",
+        "然后使用jQuery的<code>.addClass()</code>方法添加2个class：<code>animated</code>、<code>shake</code>。",
         "例如，你可以将下面的代码写在<code>document ready function</code>里：",
         "<code>$(\".text-primary\").addClass(\"animated shake\");</code>",
         "上面的代码给所有class为<code>text-primary</code> 的元素添加shake class。"
@@ -145,8 +145,8 @@
         "</div>"
       ],
       "tests": [
-        "assert($(\".well\").hasClass(\"animated\") && $(\".well\").hasClass(\"shake\"), 'message: Use the jQuery <code>addClass&#40&#41</code> function to give the class <code>animated</code> and <code>shake</code> to all your elements with the class <code>well</code>.');",
-        "assert(!code.match(/class\\.\\*animated/g), 'message: Only use jQuery to add these class to the element.');"
+        "assert($(\".well\").hasClass(\"animated\") && $(\".well\").hasClass(\"shake\"), 'message: 使用jQuery的<code>addClass()</code>方法给所有类名中含有<code>well</code>的元素添加 <code>animated shake</code>这两个类.');",
+        "assert(!code.match(/class\\.\\*animated/g), 'message: 只能使用jQuery给元素添加类。');"
       ],
       "type": "waypoint",
       "challengeType": 0
@@ -469,12 +469,12 @@
       "id": "564944c91be2204b269d51e3",
       "title": "Change Text Inside an Element Using jQuery",
       "description": [
-        "jQuery不仅可以改变元素标记里的文本，甚至可以改变HTML标记本身。",
-        "jQuery的<code>.html()</code>方法可以添加HTML标签和文字到元素,而元素之前的内容都会被方法的内容所替换掉。",
-        "我们是这样重写和强调标题文本的：",
+        "jQuery不仅可以改变元素开始标记和结束标记间的文本，甚至可以改变元素标记本身。",
+        "jQuery的<code>.html()</code>方法可以添加HTML标签和文字到元素，而元素之前的内容都会被方法的内容所替换掉。",
+        "我们是通过<code>em</code>[emphasize]标签来重写和强调标题文本的：",
         "<code>$(\"h3\").html(\"&#60;em&#62;jQuery Playground&#60;/em&#62;\");</code>",
         "jQuery 还有一个类似的方法叫<code>.text()</code>，它只能改变文本但不能修改标记。换句话说，这个方法只会把传进来的任何东西(包括标记)当成文本来显示。",
-        "强调id为<code>target4</code>按钮里的文本。 "
+        "任务：强调id为<code>target4</code>按钮里的文本。 "
       ],
       "releasedOn": "November 18, 2015",
       "challengeSeed": [
@@ -510,9 +510,11 @@
         "</div>"
       ],
       "tests": [
-        "assert.isTrue((/<em>#target4<\\/em>/gi).test($(\"#target4\").html()), 'message: Italicize the text in your <code>target4</code> button by adding HTML tags.');",
-        "assert($(\"#target4\") && $(\"#target4\").text() === '#target4', 'message: Make sure the text is otherwise unchanged.');",
-        "assert.isFalse((/<em>/gi).test($(\"h3\").html()), 'message: Do not alter any other text.');"
+        "assert.isTrue((/<em>|<i>#target4<\\/em>|<\\/i>/gi).test($(\"#target4\").html()), 'message: 通过增加HTML标签的方式来强调 <code>target4</code>按钮的文本。');",
+        "assert($(\"#target4\") && $(\"#target4\").text() === '#target4', 'message: 确保你更换的按钮为 <code>target4</code>。');",
+        "assert.isFalse((/<em>|<i>/gi).test($(\"h3\").html()), 'message: 不要更改任何文本。');",
+        "assert(code.match(/\\.html\\(/g), 'message: 确保你使用的方法是 <code>.html()</code>，而不是 <code>.text()</code>。');",
+        "assert(code.match(/\\$\\(\\s*?(\\\"|\\')#target4(\\\"|\\')\\s*?\\)\\.html\\(/), 'message: 确保你使用的是jQuery中的id选择器。');"
       ],
       "type": "waypoint",
       "challengeType": 0
@@ -795,7 +797,7 @@
         "jQuery 用CSS选择器来选取元素，<code>target:nth-child(n)</code> CSS选择器允许你按照索引顺序(从1开始)选择目标元素的所有子元素。",
         "示例：你可以给目标元素的第三个子元素添加bounce class。",
         "<code>$(\".target:nth-child(3)\").addClass(\"animated bounce\");</code>",
-        "任务：确保给目标元素的第二个子元素添加bounce class，你可以通过<code>target</code> class来选获得目标元素。"
+        "任务：确保给目标元素的第二个子元素添加animated和bounce class，你可以通过<code>target</code> class来选获得目标元素。"
       ],
       "challengeSeed": [
         "fccss",
@@ -904,8 +906,7 @@
       "id": "bad87fee1348bd9aecb08826",
       "title": "Use jQuery to Modify the Entire Page",
       "description": [
-        "We're done playing with our jQuery playground. Let's tear it down!",
-        "对jQuery的介绍就到这里吧，让我们来玩耍吧！",
+        "我们已经玩了这么久的jQuery游乐场，是时候结束这一节了。",
         "我们让整个body都有淡出效果(fadeOut)： <code> $(\"body\").addClass(\"animated fadeOut\");</code>",
         "让我们做一些更为激动人心的事情，给body添加class <code>animated</code> 和<code>hinge</code> 。"
       ],
